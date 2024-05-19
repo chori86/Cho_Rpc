@@ -39,6 +39,7 @@ FUNC_RPC_MENU() {
         1*)
             VARVAL_RPC="https://earpc.xinfin.network"
             VARVAL_WSS="wss://ews.xinfin.network"
+            break
             ;;
         2*)
             VARVAL_RPC="https://erpc.xinfin.network"
