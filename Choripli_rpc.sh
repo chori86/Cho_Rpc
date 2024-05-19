@@ -83,9 +83,9 @@ FUNC_RPC_MENU() {
 }
 
 FUNC_SET_FILE() {
-    DIRS1="~/pluginV2Install/sample.vars"
-    DIRS2="~/plinode_$(hostname -f).vars"
-    DIRS3="~/pluginV2/config.toml"
+    DIRS1=~/pluginV2Install/sample.vars
+    DIRS2=~/plinode_$(hostname -f).vars
+    DIRS3=~/pluginV2/config.toml
 
     # Set bashfile2
     if [ -e "$DIRS1" ] && [ -e "$DIRS2" ]; then
