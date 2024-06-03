@@ -97,9 +97,9 @@ FUNC_SET_FILE() {
     if [ -e "$DIRS3" ]; then
         sed -i -e "s|httpUrl = .*|httpUrl = '$VARVAL_RPC'|g" $DIRS3
     fi
-    cat $DIRS1 | grep -H "mainnet_httpUrl" ~/pluginV2Install/sample.vars
-    cat $DIRS2 | grep -H "mainnet_httpUrl" ~/plinode_$(hostname -f).vars
-    cat $DIRS3 | grep -H "httpUrl" ~/pluginV2/config.toml
+    cat $DIRS1 | grep "mainnet_httpUrl" | sed "s/^/pluginV2Install/sample.vars: /"
+    cat $DIRS2 | grep "mainnet_httpUrl" | sed "s/^/plinode_$(hostname -f).vars: /"
+    cat $DIRS3 | grep "httpUrl" | sed "s/^/pluginV2/config.toml: /"
 
     FUNC_SED_FILE
 }
@@ -117,9 +117,9 @@ FUNC_SED_FILE() {
     pm2 reset all
     pm2 list
 
-    cat $DIRS1 | grep -H "mainnet_wsUrl" ~/pluginV2Install/sample.vars
-    cat $DIRS2 | grep -H "mainnet_wsUrl" ~/plinode_$(hostname -f).vars
-    cat $DIRS3 | grep -H "wsUrl" ~/pluginV2/config.toml
+    cat $DIRS1 | grep "mainnet_wsUrl" | sed "s/^/pluginV2Install/sample.vars: /"
+    cat $DIRS2 | grep "mainnet_wsUrl" | sed "s/^/plinode_$(hostname -f).vars: /"
+    cat $DIRS3 | grep "wsUrl" | sed "s/^/pluginV2/config.toml: /"
 }
 
 FUNC_EXIT_ERROR() {
